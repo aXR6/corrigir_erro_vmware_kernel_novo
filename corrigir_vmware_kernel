@@ -1,22 +1,18 @@
 #!/bin/bash
-DirAtual="${PWD}"
 
 cd ~
-echo -e "\033[1;31m[✔] Pasta ${PWD} - Aberta. \033[0m \033[1;31m \033[0m"
-
+echo -e "\033[1;31m[✔] Pasta ${PWD} - Aberta. Baixando repositorio ( vmware-host-modules ) ... \033[0m \033[1;31m \033[0m"
 git clone https://github.com/mkubecek/vmware-host-modules.git
-echo -e "\033[1;31m[✔] Repositorio: vmware-host-modules - Baixado. \033[0m \033[1;31m \033[0m"
-
+echo ""
 cd vmware-host-modules
-echo -e "\033[1;31m[✔] Pasta ${PWD} - Aberta. \033[0m \033[1;31m \033[0m"
-
+echo -e "\033[1;31m[✔] Pasta ${PWD} - Aberta. Agora vamos compilar os componentes. \033[0m \033[1;31m \033[0m"
 echo -e "\033[1;31m[✔] Informe a versão do VMware Workstation. Ex.: 16.2.3 \033[0m \033[1;31m \033[0m"
 read versao
 git checkout workstation-$versao
-
+echo ""
 echo -e "\033[1;31m[✔] Aguarde enquanto instalamos todos os componentes... \033[0m \033[1;31m \033[0m"
 make
 sudo make install
 sudo systemctl restart vmware.service
-
+echo ""
 echo -e "\033[1;31m[✔] Tudo pronto! \033[0m \033[1;31m \033[0m"
