@@ -1,14 +1,14 @@
 #!/bin/bash
-cmdpwd=pwd
+DirAtual="${PWD}"
 
 cd ~
-echo -e "\033[1;31m[✔] Pasta $cmdpwd - Aberta. \033[0m \033[1;31m \033[0m"
+echo -e "\033[1;31m[✔] Pasta $DirAtual - Aberta. \033[0m \033[1;31m \033[0m"
 
 git clone https://github.com/mkubecek/vmware-host-modules.git
 echo -e "\033[1;31m[✔] Repositorio: vmware-host-modules - Baixado. \033[0m \033[1;31m \033[0m"
 
 cd vmware-host-modules
-echo -e "\033[1;31m[✔] Pasta $cmdpwd - Aberta. \033[0m \033[1;31m \033[0m"
+echo -e "\033[1;31m[✔] Pasta $DirAtual - Aberta. \033[0m \033[1;31m \033[0m"
 
 echo -e "\033[1;31m[✔] Informe a versão do VMware Workstation. Ex.: 16.2.3 \033[0m \033[1;31m \033[0m"
 read versao
