@@ -4,6 +4,12 @@ cd ~
 echo -e "\033[1;31m[✔] Pasta ${PWD} - Aberta. Baixando repositorio ( vmware-host-modules ) ... \033[0m \033[1;31m \033[0m"
 git clone https://github.com/mkubecek/vmware-host-modules.git
 echo ""
+
+echo -e "\033[1;31m[✔] Pasta ${PWD} - Instale cabeçalhos Linux - Corrigindo cabeçalhos linux ausentes. \033[0m \033[1;31m \033[0m"
+apt update && apt upgrade -y && apt autoremove -y
+apt install linux-headers-$(uname -r) -y
+
+chmod 777 -R vmware-host-modules
 cd vmware-host-modules
 echo -e "\033[1;31m[✔] Pasta ${PWD} - Aberta. Agora vamos compilar os componentes. \033[0m \033[1;31m \033[0m"
 echo -e "\033[1;31m[✔] Informe a versão do VMware Workstation. Ex.: 16.2.3 \033[0m \033[1;31m \033[0m"
